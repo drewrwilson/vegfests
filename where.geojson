@@ -1,0 +1,160 @@
+
+{
+	"type": "FeatureCollection",
+	"features": [
+
+		{
+			"type": "Feature",
+			"properties":
+			{
+        "name" : "DC Veg Fest",
+				"2014 date" : "9/20/2014",
+        "2015 date" : "",
+        "location" : "Yards Park",
+        "city": "Minneapolis, MN",
+        "website" : "http://DCVegFest.com"
+			},
+			"geometry":
+			{
+				"type": "Point",
+				"coordinates": [ -77.00107, 38.87361 ]
+			}
+		},
+    {
+      "type": "Feature",
+      "properties":
+      {
+        "name" : "Twin Cities Veg Fest",
+        "2014 date" : "9/28/2014",
+        "2015 date" : "",
+        "city": "Minneapolis, MN",
+        "location" : "Coffman Memorial Union",
+        "website" : "http://tcvegfest.com"
+      },
+      "geometry":
+      {
+        "type": "Point",
+        "coordinates": [ -93.235347,44.972822 ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties":
+      {
+        "name" : "Boston Vegetarian Food Festival",
+        "2014 date" : "10/25/2014",
+        "2015 date" : "",
+        "city" : "Boston, MA",
+        "location" : "Reggie Lewis Center",
+        "website" : "http://BostonVeg.org"
+      },
+      "geometry":
+      {
+        "type": "Point",
+        "coordinates": [ -71.093046,42.331975 ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties":
+      {
+        "name" : "Chicago VeganMania",
+        "2014 date" : "10/11/2014",
+        "2015 date" : "",
+        "city" : "Chicago, IL",
+        "location" : "Broadway Armory",
+        "website" : "http://chicagoveganmania.com"
+      },
+      "geometry":
+      {
+        "type": "Point",
+        "coordinates": [ -87.659692,41.98914 ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties":
+      {
+        "name" : "Portland VegFest",
+        "2014 date" : "9/27/2014",
+        "2015 date" : "",
+        "city" : "Portland, OR",
+        "location" : "Oregon Convention Center",
+        "website" : "http://nwveg.org/vegfest"
+      },
+      "geometry":
+      {
+        "type": "Point",
+        "coordinates": [ -122.66296,45.527977 ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties":
+      {
+        "name" : "Richmond Vegetarian Fest",
+        "2014 date" : "6/21/2014",
+        "2015 date" : "",
+        "city" : "Richmond, VA",
+        "location" : "Azalea Gardens at Bryan Park",
+        "website" : "http://www.veggiefest.org/"
+      },
+      "geometry":
+      {
+        "type": "Point",
+        "coordinates": [ -77.47211,37.596144 ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties":
+      {
+        "name" : "Philly VegFest",
+        "2014 date" : "6/14/2014",
+        "2015 date" : "",
+        "city" : "Philadelphia, PA",
+        "location" : "2nd & Pine Street",
+        "website" : "http://www.thehumaneleague.com/phillyvegfest/"
+      },
+      "geometry":
+      {
+        "type": "Point",
+        "coordinates": [ -75.1451068,39.9430609 ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties":
+      {
+        "name" : "New England VegFest",
+        "2014 date" : "4/6/2014",
+        "2015 date" : "4/28/2015",
+        "city" : "Worcester, MA",
+        "location" : "DCU Center",
+        "website" : "http://NewEnglandVegFest.com"
+      },
+      "geometry":
+      {
+        "type": "Point",
+        "coordinates": [ -71.79876,42.265458 ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties":
+      {
+        "name" : "Seattle Vegfest",
+        "2014 date" : "3/29/2014",
+        "2015 date" : "",
+        "city" : "Seattle, WA",
+        "location" : "Seattle Center's Exhibition Hall",
+        "website" : "www.vegofwa.org/Vegfest/Default.aspx"
+      },
+      "geometry":
+      {
+        "type": "Point",
+        "coordinates": [ -122.3523516,47.6219621 ]
+      }
+    }
+	]
+}
