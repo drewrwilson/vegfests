@@ -16,16 +16,24 @@ Download CSV link:
 
 var request = require('request'),
     fs = require('fs'),
-    csv2geojson = require('csv2geojson');
-
-
+    csv2geojson = require('csv2geojson'),
+    knox = require('knox');
 
 var config = {
             "outputDirectory" : 'data/',
             "csvLink" : "https://docs.google.com/spreadsheet/ccc?key=1Wna5S_59sy1ycidSsFERKefd_Wy7oajyCknifkpzdcU&output=csv",
-            "filename" : "vegfests"
+            "filename" : "vegfests",
+            "accessKeyID" : process.env.ACCESS_KEY,
+            "secretKey" : process.env.SECRET_KEY,
+            "bucket" : process.env.BUCKET,
+            "remoteDirectory" : process.env.REMOTE_DIRECTORY
           }
 
+var client = knox.createClient({
+    key: config.accessKeyID
+  , secret: config.secretKey
+  , bucket: config.bucket
+});
 
 function ensureExists(path, mask, cb) {
     if (typeof mask == 'function') { // allow the `mask` parameter to be optional
@@ -60,6 +68,20 @@ function writeToFile (data, filename, callback) {
   });
 }
 
+function writeToS3 (geoJSON, filename, callback) {
+  var req = client.put(filename, {
+      'Content-Length': geoJSON.length,
+    'Content-Type': 'application/json',
+    'x-amz-acl': 'public-read'
+  });
+  req.on('response', function(res){
+    if (200 == res.statusCode) {
+      console.log('saved to %s', req.url);
+    }
+  });
+  req.end(geoJSON);
+
+}
 
 initialize (config.outputDirectory, function () {
     console.log('Using this directory for data output: ' + config.outputDirectory);
@@ -67,7 +89,8 @@ initialize (config.outputDirectory, function () {
 
 request(config.csvLink, function (error, response, body) {
   if (!error && response.statusCode == 200) {
-    console.log(body) // Print the CSV
+    // console.log(body) // Print the CSV
+    console.log('Downloaded CSV of google doc successfully');
 
     var geoJson = csv2geojson.csv2geojson(body, {
       latfield: '2014 Latitude',
@@ -78,15 +101,18 @@ request(config.csvLink, function (error, response, body) {
         // err has any parsing errors
         // data is the data.
         jsonString = JSON.stringify(data);
-        writeToFile(jsonString, config.outputDirectory + Date.now() + '-' + config.filename + '.geojson', function () {
-            console.log('Successfully wrote data to geojson: ' + config.filename + '.geojson');
+        var timestamp = Date.now();
+        writeToFile(jsonString, config.outputDirectory + timestamp + '-' + config.filename + '.geojson', function () {
+            console.log('Successfully wrote data to geojson: ' + timestamp + '-' + config.filename + '.geojson');
           })
+        writeToS3(jsonString, config.remoteDirectory + timestamp + '-' + config.filename + '.geojson', function () {
+            // console.log('Successfully wrote data to S3.);
+          });
+        writeToS3(jsonString, config.remoteDirectory + config.filename + '.geojson', function () {
+            // console.log('Successfully wrote data to S3.);
+          });
 
     });
 
-
-    writeToFile(body, config.outputDirectory + Date.now() + '-' + config.filename + '.csv', function () {
-    console.log('Successfully wrote data to CSV: ' + config.filename);
-  })
   }
 })
