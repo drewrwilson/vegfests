@@ -1,7 +1,7 @@
 vegfests
 ========
 
-Starting to map vegetarian festivals. Open [where.geojson](https://github.com/drewrwilson/vegfests/blob/master/where.geojson) to view it.
+Starting to map vegetarian festivals. The most up-to-date [geojson file is on S3](https://s3-us-west-2.amazonaws.com/lets-see/vegfests-map/vegfests.geojson). View [where.geojson](https://github.com/drewrwilson/vegfests/blob/master/where.geojson)to see it on github.
 
 two parts to this:
 * get data from google docs
