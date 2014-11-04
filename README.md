@@ -5,7 +5,7 @@ Starting to map vegetarian festivals. Open [where.geojson](https://github.com/dr
 
 two parts to this:
 * get data from google docs
-* make a jekyll website with the geojson data
+* make a website with the geojson data
 * website features: map, upcoming list, 2014 list. find nearby based on geo, sign up to get updates
 
 
@@ -15,6 +15,9 @@ This is a nodejs application that downloads a CSV of a google doc of VegFest fro
 
 ## s3 environment variables
 ACCESS_KEY=
+
 SECRET_KEY=
+
 BUCKET=
+
 REMOTE_DIRECTORY=
