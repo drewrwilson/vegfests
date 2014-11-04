@@ -41,7 +41,7 @@ $.getJSON( "https://s3-us-west-2.amazonaws.com/lets-see/vegfests-map/vegfests.ge
   window.what = data;
   L.mapbox.accessToken = 'pk.eyJ1IjoiZHJld3J3aWxzb24iLCJhIjoiUkplQ29iUSJ9.6cM-yTJjzxwfCWUNDOgi8w';
   var map =   L.mapbox.map('map', 'drewrwilson.k4p08dgn')
-    .setView([37.8, -96], 4);
+    .setView([37.8, -96], 5);
   var myLayer = L.geoJson(data,{
     onEachFeature: onEachFeature
 }).addTo(map);
